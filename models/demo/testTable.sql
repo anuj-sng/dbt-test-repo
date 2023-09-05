@@ -5,7 +5,10 @@
 
     Try changing "table" to "view" below
 */
-{{ config(materialized="table") }}
+{{ config(
+    materialized="table",
+    pre_hook="CREATE or REPLACE table conntact(id int ,name varchar(100))" 
+            ) }}
 
 with
     source_data as (
